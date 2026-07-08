@@ -254,6 +254,8 @@ main { position: relative; z-index: 10; }
 }
 #ctaForm input:focus-visible { outline: none; border-color: var(--beam); }
 .form-done { color: var(--beam); text-align: center; }
+.form-err { color: var(--beam); text-align: center; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 
 /* ============ reduced motion / no-js fallback ============ */
 body.static-mode #film, body.static-mode .hud { display: none; }

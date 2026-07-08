@@ -207,15 +207,48 @@ function initFilmMode() {
 }
 
 /* ---------- form ---------- */
-document.getElementById('ctaForm').addEventListener('submit', (e) => {
+// After deploying the Cloudflare Worker, paste its URL here:
+const RFQ_ENDPOINT = ''; // e.g. 'https://holt-studio-rfq.<you>.workers.dev'
+
+document.getElementById('ctaForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
   if (!form.checkValidity()) {
     form.reportValidity();
     return;
   }
-  form.querySelectorAll('input, button').forEach((el) => (el.disabled = true));
-  document.getElementById('formDone').hidden = false;
+  const doneEl = document.getElementById('formDone');
+  const errEl = document.getElementById('formErr');
+  errEl.hidden = true;
+
+  const fields = form.querySelectorAll('input, button');
+  fields.forEach((el) => (el.disabled = true));
+
+  const payload = {
+    name: form.name.value,
+    business: form.business.value,
+    phone: form.phone.value,
+    website: form.website.value, // honeypot
+  };
+
+  // Not wired to a backend yet — acknowledge without losing the submission's UX.
+  if (!RFQ_ENDPOINT) {
+    doneEl.hidden = false;
+    return;
+  }
+
+  try {
+    const res = await fetch(RFQ_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error('Bad response ' + res.status);
+    doneEl.hidden = false;
+  } catch (err) {
+    fields.forEach((el) => (el.disabled = false));
+    errEl.hidden = false;
+  }
 });
 
 /* ---------- boot ---------- */

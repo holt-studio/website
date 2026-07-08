@@ -1,0 +1,13 @@
+name = "holt-studio-rfq"
+main = "rfq-worker.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+GH_OWNER = "holt-studio"
+GH_REPO = "rfq-submissions"
+GH_FILE = "submissions.csv"
+# Comma-separated origins allowed to POST. Add your custom domain later.
+ALLOWED_ORIGINS = "https://holt-studio.github.io"
+
+# GH_TOKEN is a SECRET — do not put it here. Set it with:
+#   wrangler secret put GH_TOKEN
