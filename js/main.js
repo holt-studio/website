@@ -168,7 +168,7 @@ function initFilmMode() {
         }
       },
       onToggle(self) {
-        if (self.isActive) sceneLabelEl.textContent = scene.dataset.label;
+        if (self.isActive) { if (sceneLabelEl) sceneLabelEl.textContent = scene.dataset.label; }
         else beatMeta.forEach((b) => (b.el.style.opacity = 0));
       },
       // Lazy-load next sequence just before it's needed
@@ -190,8 +190,8 @@ function initFilmMode() {
       const mm = String(Math.floor(t / 60)).padStart(2, '0');
       const ss = String(Math.floor(t % 60)).padStart(2, '0');
       const ff = String(Math.floor((t % 1) * FPS)).padStart(2, '0');
-      timecodeEl.textContent = `00:${mm}:${ss}:${ff}`;
-      scrollHintEl.style.opacity = self.progress > 0.01 ? 0.35 : 1;
+      if (timecodeEl) timecodeEl.textContent = `00:${mm}:${ss}:${ff}`;
+      scrollHintEl.style.opacity = self.progress > 0.02 ? 0.55 : 1;
     },
   });
 
@@ -201,7 +201,7 @@ function initFilmMode() {
     start: 'top top',
     end: 'bottom top',
     onToggle(self) {
-      if (self.isActive) sceneLabelEl.textContent = 'SC 00 — TITLE';
+      if (self.isActive && sceneLabelEl) sceneLabelEl.textContent = 'SC 00 — TITLE';
     },
   });
 }
