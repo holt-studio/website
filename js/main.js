@@ -1,4 +1,4 @@
-/* SEVENDAY — scroll-scrubbed film site */
+/* Holt Studio — scroll-scrubbed film site */
 
 const FPS = 24;               // source video fps (timecode display)
 const SEQ_COUNT = 6;
