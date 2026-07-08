@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEVENDAY — Your website, live in 7 days. $99/mo.</title>
+<meta name="description" content="Website as a service for local businesses. We design, build, host and maintain your website for one flat monthly price. Live in 7 days.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <span class="mono">LOADING REEL 01</span>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+    <span class="mono" id="loaderPct">0%</span>
+  </div>
+</div>
+
+<!-- Film canvas -->
+<canvas id="film" aria-hidden="true"></canvas>
+
+<!-- Viewfinder HUD -->
+<div class="hud" aria-hidden="true">
+  <div class="hud-corner tl"></div>
+  <div class="hud-corner tr"></div>
+  <div class="hud-corner bl"></div>
+  <div class="hud-corner br"></div>
+  <div class="hud-item hud-tl mono">SEVENDAY <span class="hud-dim">— A WEBSITE FILM</span></div>
+  <div class="hud-item hud-tr mono"><span class="rec-dot"></span>TC <span id="timecode">00:00:00:00</span></div>
+  <div class="hud-item hud-bl mono" id="sceneLabel">SC 00 — TITLE</div>
+  <div class="hud-item hud-br mono" id="scrollHint">SCROLL TO PLAY ▸</div>
+</div>
+
+<main>
+  <!-- Title card -->
+  <header class="hero" id="hero">
+    <p class="eyebrow mono">SEVENDAY PRESENTS</p>
+    <h1>Little shop,<br><em>big glow-up.</em></h1>
+    <p class="hero-sub">A website designed, built, hosted and maintained for you.<br>Live in 7 days. From $99/month.</p>
+    <a class="btn btn-ghost" href="#pricing">Skip to pricing</a>
+  </header>
+
+  <!-- Scene 1: spark → broken storefront -->
+  <section class="scene" data-seq="1" data-frames="95" data-label="SC 01 — THE WOBBLY SHOP">
+    <div class="beat" data-from="0.04" data-to="0.32">
+      <p class="beat-eyebrow mono">SC 01</p>
+      <p class="beat-line">Every business starts as<br>one little block.</p>
+    </div>
+    <div class="beat" data-from="0.60" data-to="0.94">
+      <p class="beat-line">But right now, your website<br>is the wobbly one.</p>
+    </div>
+  </section>
+
+  <!-- Scene 2: shatter → rebuilt browser -->
+  <section class="scene" data-seq="2" data-frames="96" data-label="SC 02 — THE GLOW-UP">
+    <div class="beat" data-from="0.06" data-to="0.34">
+      <p class="beat-line">Here comes the glow-up —</p>
+    </div>
+    <div class="beat" data-from="0.62" data-to="0.94">
+      <p class="beat-line">Live in 7 days.<br><span class="accent">You do nothing.</span></p>
+    </div>
+  </section>
+
+  <!-- Scene 3: fly-through → assembly line -->
+  <section class="scene" data-seq="3" data-frames="90" data-label="SC 03 — HOW IT WORKS">
+    <div class="beat" data-from="0.04" data-to="0.28">
+      <p class="beat-line">Peek inside our workshop.</p>
+    </div>
+    <div class="beat" data-from="0.58" data-to="0.95">
+      <p class="beat-eyebrow mono">HOW IT WORKS</p>
+      <p class="beat-line beat-steps">One call.<br>We build.<br>You go live.</p>
+    </div>
+  </section>
+
+  <!-- Scene 4: melt → pricing monoliths -->
+  <section class="scene" data-seq="4" data-frames="96" data-label="SC 04 — ONE FLAT PRICE">
+    <div class="beat" data-from="0.05" data-to="0.34">
+      <p class="beat-line">No $8,000 invoice.<br>No DIY weekends.</p>
+    </div>
+    <div class="beat" data-from="0.62" data-to="0.95">
+      <p class="beat-line">Three little boxes.<br>One flat price.</p>
+    </div>
+  </section>
+
+  <!-- Pricing (calm, readable, crawlable) -->
+  <section class="panel" id="pricing">
+    <p class="eyebrow mono">SC 05 — CHOOSE YOUR BOX</p>
+    <h2>Pick a box. We handle the rest.</h2>
+    <div class="tiers">
+      <article class="tier">
+        <h3>Launch</h3>
+        <p class="price">$99<span>/mo</span></p>
+        <p class="price-note mono">$0 SETUP · 12-MO MIN</p>
+        <ul>
+          <li>5-page website</li>
+          <li>Domain, hosting &amp; SSL</li>
+          <li>Mobile-ready design</li>
+          <li>Contact form</li>
+          <li>Google Business link</li>
+          <li>2 edits every month</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Start with Launch</a>
+      </article>
+      <article class="tier tier-featured">
+        <p class="tier-badge mono">MOST PICKED</p>
+        <h3>Grow</h3>
+        <p class="price">$149<span>/mo</span></p>
+        <p class="price-note mono">EVERYTHING IN LAUNCH, PLUS</p>
+        <ul>
+          <li>Booking / quote form</li>
+          <li>Review widget</li>
+          <li>Monthly content update</li>
+          <li>Basic local SEO</li>
+        </ul>
+        <a class="btn btn-solid" href="#contact">Start with Grow</a>
+      </article>
+      <article class="tier">
+        <h3>Pro</h3>
+        <p class="price">$249<span>/mo</span></p>
+        <p class="price-note mono">EVERYTHING IN GROW, PLUS</p>
+        <ul>
+          <li>Ecom-lite (up to 20 products) or menu ordering</li>
+          <li>Photo shoot, once a year</li>
+          <li>Quarterly design refresh</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Start with Pro</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Scene 5: burst → constellation -->
+  <section class="scene" data-seq="5" data-frames="83" data-label="SC 06 — THE TOWN NOTICES">
+    <div class="beat" data-from="0.06" data-to="0.36">
+      <p class="beat-line">Then the whole town notices —</p>
+    </div>
+    <div class="beat" data-from="0.62" data-to="0.94">
+      <p class="beat-line">and your business blooms.</p>
+    </div>
+  </section>
+
+  <!-- Scene 6: town folds → golden block -->
+  <section class="scene" data-seq="6" data-frames="94" data-label="SC 07 — YOUR TURN">
+    <div class="beat" data-from="0.08" data-to="0.40">
+      <p class="beat-line">It all starts with<br>one little block.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="panel panel-cta" id="contact">
+    <p class="eyebrow mono">FINAL SCENE — YOUR TURN</p>
+    <h2>Get your site.</h2>
+    <p class="cta-sub">Tell us who you are. We call you back within one business day.</p>
+    <form id="ctaForm" novalidate>
+      <label>
+        <span class="mono">YOUR NAME</span>
+        <input type="text" name="name" autocomplete="name" required placeholder="Alex Rivera">
+      </label>
+      <label>
+        <span class="mono">BUSINESS NAME</span>
+        <input type="text" name="business" autocomplete="organization" required placeholder="Rivera's Bakery">
+      </label>
+      <label>
+        <span class="mono">PHONE</span>
+        <input type="tel" name="phone" autocomplete="tel" required placeholder="(555) 010-0199">
+      </label>
+      <button class="btn btn-solid" type="submit">Request my callback</button>
+      <p class="form-done mono" id="formDone" hidden>RECEIVED. WE'LL CALL YOU WITHIN ONE BUSINESS DAY.</p>
+    </form>
+    <footer class="footer mono">
+      <span>© 2026 SEVENDAY</span>
+      <span>WEBSITES AS A SERVICE</span>
+      <span>LIVE IN SEVEN DAYS</span>
+    </footer>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
