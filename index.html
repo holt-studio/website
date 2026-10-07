@@ -156,23 +156,33 @@
     <p class="eyebrow mono">FINAL SCENE — YOUR TURN</p>
     <h2>Get your site.</h2>
     <p class="cta-sub">Tell us who you are. We call you back within one business day.</p>
-    <form id="ctaForm" novalidate>
+    <!-- Posts to Web3Forms (static-friendly). Without JS it still submits as a normal form. -->
+    <form id="ctaForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="13098a9a-424c-4f8e-aa30-268f2538c34f">
+      <input type="hidden" name="subject" value="New callback request — holtdesign.site">
+      <input type="hidden" name="from_name" value="Holt Design website">
       <label>
         <span class="mono">YOUR NAME</span>
-        <input type="text" name="name" autocomplete="name" required placeholder="Alex Rivera">
+        <input type="text" name="name" autocomplete="name" required maxlength="100" placeholder="Alex Rivera">
       </label>
       <label>
         <span class="mono">BUSINESS NAME</span>
-        <input type="text" name="business" autocomplete="organization" required placeholder="Rivera's Bakery">
+        <input type="text" name="business" autocomplete="organization" required maxlength="120" placeholder="Rivera's Bakery">
+      </label>
+      <label>
+        <span class="mono">EMAIL</span>
+        <input type="email" name="email" autocomplete="email" required maxlength="120" placeholder="alex@riverasbakery.ca">
       </label>
       <label>
         <span class="mono">PHONE</span>
-        <input type="tel" name="phone" autocomplete="tel" required placeholder="(555) 010-0199">
+        <input type="tel" name="phone" autocomplete="tel" required maxlength="30" placeholder="(416) 555-0199">
       </label>
-      <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-      <button class="btn btn-solid" type="submit">Request my callback</button>
-      <p class="form-done mono" id="formDone" hidden>RECEIVED. WE'LL CALL YOU WITHIN ONE BUSINESS DAY.</p>
-      <p class="form-err mono" id="formErr" hidden>SOMETHING WENT WRONG. PLEASE TRY AGAIN OR CALL US.</p>
+      <!-- Honeypot: hidden from people, bots tick it. Web3Forms also rejects it server-side. -->
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <button class="btn btn-solid" type="submit" id="formBtn">Request my callback</button>
+      <p class="form-note">We only use these details to get back to you. <a href="privacy.html">Privacy policy</a>.</p>
+      <p class="form-done mono" id="formDone" role="status" tabindex="-1" hidden>RECEIVED. WE'LL CALL YOU WITHIN ONE BUSINESS DAY.</p>
+      <p class="form-err" id="formErr" role="alert" hidden><span class="mono">SOMETHING WENT WRONG.</span> Please try again, or email us at <a href="mailto:admin@holtdesign.site">admin@holtdesign.site</a>.</p>
     </form>
   </section>
 </main>

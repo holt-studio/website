@@ -253,8 +253,13 @@ main { position: relative; z-index: 10; }
   padding: 13px 15px;
 }
 #ctaForm input:focus-visible { outline: none; border-color: var(--beam); }
-.form-done { color: var(--beam); text-align: center; }
-.form-err { color: var(--beam); text-align: center; }
+.form-note { font-size: 14px; color: var(--mist); text-align: center; }
+.form-note a, .form-err a { color: var(--paper); text-underline-offset: 3px; }
+.form-done { color: var(--beam); text-align: center; outline: none; }
+.form-err { color: var(--beam); text-align: center; font-size: 15px; }
+.form-err .mono { display: block; margin-bottom: 4px; }
+#ctaForm button:disabled { opacity: 0.6; cursor: progress; }
+[hidden] { display: none !important; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 
 /* ============ reduced motion / no-js fallback ============ */
