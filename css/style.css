@@ -374,7 +374,7 @@ main { position: relative; z-index: 10; }
   font-family: var(--display); font-weight: 600; font-size: 20px;
   color: var(--paper); margin-bottom: 6px;
 }
-.site-footer a { color: var(--paper); text-underline-offset: 3px; }
+.site-footer a { color: var(--paper); text-underline-offset: 3px; display: inline-block; padding: 6px 0; }
 .site-footer a:hover { color: var(--beam); }
 .footer-legal { margin-top: 14px; }
 
