@@ -193,7 +193,8 @@ function initFilmMode() {
       const ss = String(Math.floor(t % 60)).padStart(2, '0');
       const ff = String(Math.floor((t % 1) * FPS)).padStart(2, '0');
       if (timecodeEl) timecodeEl.textContent = `00:${mm}:${ss}:${ff}`;
-      scrollHintEl.style.opacity = self.progress > 0.02 ? 0.55 : 1;
+      // Full at the top, dimmed while scrolling, gone at the footer so it doesn't cover it
+      scrollHintEl.style.opacity = self.progress > 0.98 ? 0 : self.progress > 0.02 ? 0.55 : 1;
     },
   });
 
