@@ -302,3 +302,21 @@ body.static-mode .scene img.poster {
   .hud-dim { display: none; }
   .hud-item { font-size: 10px; letter-spacing: 0.1em; }
 }
+
+/* ============ document pages (privacy) ============ */
+.doc-header { padding: var(--hud-pad) 24px 0; max-width: 760px; margin: 0 auto; }
+.doc-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.doc { max-width: 760px; margin: 0 auto; padding: 48px 24px 72px; }
+.doc h1 {
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(36px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.015em;
+  margin: 10px 0 18px;
+}
+.doc h2 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 36px 0 10px; }
+.doc p, .doc li { margin-bottom: 10px; }
+.doc ul { padding-left: 22px; margin-bottom: 10px; }
+.doc a { color: var(--paper); text-underline-offset: 3px; }
+.doc a:hover { color: var(--beam); }
+.doc-lead { font-size: 19px; }
+.doc-back { margin-top: 40px; }
+.doc .btn { display: inline-block; text-decoration: none; }
