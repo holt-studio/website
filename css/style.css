@@ -383,7 +383,8 @@ body.static-mode #film, body.static-mode .hud { display: none; }
 body.static-mode .scene { height: auto; padding: 12vh 24px; }
 body.static-mode .beat { position: static; opacity: 1; pointer-events: auto; }
 body.static-mode .scene img.poster {
-  display: block; width: min(900px, 100%); margin: 32px auto 0;
+  display: block; width: min(900px, 100%); height: auto; margin: 32px auto 0;
+  border-radius: 18px;
 }
 
 /* ============ responsive ============ */

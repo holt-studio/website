@@ -103,7 +103,9 @@ function initStaticMode() {
     const img = document.createElement('img');
     img.className = 'poster';
     img.src = framePath(seq, FRAME_COUNTS[Number(seq)]);
-    img.alt = '';
+    img.alt = scene.dataset.alt || '';
+    img.width = 1600;
+    img.height = 900;
     img.loading = 'lazy';
     scene.appendChild(img);
   });
@@ -262,7 +264,10 @@ const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ---------- boot ---------- */
-if (reducedMotion) {
+// Reduced motion, or the animation libraries failed to load (CDN blocked/offline):
+// fall back to the static story so the page is never stuck behind the loader.
+const libsLoaded = window.gsap && window.ScrollTrigger && window.Lenis;
+if (reducedMotion || !libsLoaded) {
   initStaticMode();
 } else {
   // Load reel 1 with progress; start film when ready, load reel 2 behind it

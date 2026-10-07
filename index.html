@@ -3,12 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holt Design — Your website, live in 7 days. $99/mo.</title>
-<meta name="description" content="Website as a service for local businesses. We design, build, host and maintain your website for one flat monthly price. Live in 7 days.">
+<title>Holt Design — Websites for Toronto small businesses, from $99/mo</title>
+<meta name="description" content="Holt Design builds, hosts and maintains websites for small businesses in Toronto for one flat monthly price, from $99/month CAD. No setup fee. Live in 7 days.">
+<link rel="canonical" href="https://holtdesign.site/">
+<meta name="theme-color" content="#faf5ec">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Holt Design">
+<meta property="og:url" content="https://holtdesign.site/">
+<meta property="og:title" content="Holt Design — Little shop, big glow-up.">
+<meta property="og:description" content="Websites for Toronto small businesses: designed, built, hosted and maintained for one monthly price. From $99/month CAD.">
+<meta property="og:image" content="https://holtdesign.site/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A cheerful clay-style storefront with a coral front, mint striped awning and yellow door.">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Holt Design — Little shop, big glow-up.">
+<meta name="twitter:description" content="Websites for Toronto small businesses, from $99/month CAD. Live in 7 days.">
+<meta name="twitter:image" content="https://holtdesign.site/og.jpg">
+<meta name="twitter:image:alt" content="A cheerful clay-style storefront with a coral front, mint striped awning and yellow door.">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<!-- No JS: show the story as plain text, skip the loader -->
+<noscript><style>
+  .loader, #film, .hud { display: none !important; }
+  .scene { height: auto !important; padding: 12vh 24px; }
+  .beat { position: static; opacity: 1; pointer-events: auto; }
+</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Holt Design",
+  "url": "https://holtdesign.site/",
+  "email": "admin@holtdesign.site",
+  "description": "Website as a service for local small businesses: design, build, hosting and maintenance for one flat monthly price.",
+  "image": "https://holtdesign.site/og.jpg",
+  "logo": "https://holtdesign.site/apple-touch-icon.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Toronto",
+    "addressRegion": "ON",
+    "addressCountry": "CA"
+  },
+  "areaServed": { "@type": "City", "name": "Toronto" },
+  "priceRange": "$99–$249 CAD per month",
+  "currenciesAccepted": "CAD",
+  "makesOffer": [
+    { "@type": "Offer", "name": "Launch", "priceSpecification": { "@type": "UnitPriceSpecification", "price": 99, "priceCurrency": "CAD", "unitText": "month" } },
+    { "@type": "Offer", "name": "Grow", "priceSpecification": { "@type": "UnitPriceSpecification", "price": 149, "priceCurrency": "CAD", "unitText": "month" } },
+    { "@type": "Offer", "name": "Pro", "priceSpecification": { "@type": "UnitPriceSpecification", "price": 249, "priceCurrency": "CAD", "unitText": "month" } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -47,7 +107,7 @@
   </header>
 
   <!-- Scene 1: spark → broken storefront -->
-  <section class="scene" data-seq="1" data-frames="95" data-label="SC 01 — THE WOBBLY SHOP">
+  <section class="scene" data-seq="1" data-alt="A crumbling grey clay shop with a torn awning." data-frames="95" data-label="SC 01 — THE WOBBLY SHOP">
     <div class="beat" data-from="0.04" data-to="0.32">
       <p class="beat-eyebrow mono">SC 01</p>
       <p class="beat-line">Every business starts as<br>one little block.</p>
@@ -58,7 +118,7 @@
   </section>
 
   <!-- Scene 2: shatter → rebuilt browser -->
-  <section class="scene" data-seq="2" data-frames="96" data-label="SC 02 — THE GLOW-UP">
+  <section class="scene" data-seq="2" data-alt="The same shop rebuilt in coral clay with a mint striped awning, yellow door and flower pots." data-frames="96" data-label="SC 02 — THE GLOW-UP">
     <div class="beat" data-from="0.06" data-to="0.34">
       <p class="beat-line">Here comes the glow-up —</p>
     </div>
@@ -68,7 +128,7 @@
   </section>
 
   <!-- Scene 3: fly-through → assembly line -->
-  <section class="scene" data-seq="3" data-frames="90" data-label="SC 03 — HOW IT WORKS">
+  <section class="scene" data-seq="3" data-alt="An open shop cabinet revealing a tiny workshop of people building a website." data-frames="90" data-label="SC 03 — HOW IT WORKS">
     <div class="beat" data-from="0.04" data-to="0.28">
       <p class="beat-line">Behind the scenes,<br>it's simple.</p>
     </div>
@@ -79,7 +139,7 @@
   </section>
 
   <!-- Scene 4: melt → pricing monoliths -->
-  <section class="scene" data-seq="4" data-frames="96" data-label="SC 04 — ONE FLAT PRICE">
+  <section class="scene" data-seq="4" data-alt="Three clay boxes in mint, coral and yellow, one for each plan." data-frames="96" data-label="SC 04 — ONE FLAT PRICE">
     <div class="beat" data-from="0.05" data-to="0.34">
       <p class="beat-line">No $8,000 invoice.<br>No DIY weekends.</p>
     </div>
@@ -175,7 +235,7 @@
   </section>
 
   <!-- Scene 5: burst → constellation -->
-  <section class="scene" data-seq="5" data-frames="83" data-label="SC 06 — THE TOWN NOTICES">
+  <section class="scene" data-seq="5" data-alt="A busy little clay town full of colourful shops." data-frames="83" data-label="SC 06 — THE TOWN NOTICES">
     <div class="beat" data-from="0.06" data-to="0.36">
       <p class="beat-line">Then the whole town notices —</p>
     </div>
@@ -185,7 +245,7 @@
   </section>
 
   <!-- Scene 6: town folds → golden block -->
-  <section class="scene" data-seq="6" data-frames="94" data-label="SC 07 — YOUR TURN">
+  <section class="scene" data-seq="6" data-alt="A single golden block glowing on a cream stage." data-frames="94" data-label="SC 07 — YOUR TURN">
     <div class="beat" data-from="0.08" data-to="0.40">
       <p class="beat-line">It all starts with<br>one little block.</p>
     </div>
@@ -277,9 +337,9 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
