@@ -214,6 +214,48 @@ main { position: relative; z-index: 10; }
 .tiers-note { color: var(--mist); font-size: 15px; margin-top: 8px; }
 .tiers-note a, .faq a { color: var(--paper); text-underline-offset: 3px; }
 
+/* ============ work ============ */
+.work-grid {
+  width: 100%; max-width: 1080px;
+  margin-top: 20px;
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 340px));
+  justify-content: center;
+  text-align: left;
+}
+.work-card {
+  display: grid;
+  background: var(--panel);
+  border: 1px solid rgba(70, 55, 47, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(70, 55, 47, 0.06);
+  overflow: hidden;
+  color: var(--paper); text-decoration: none;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.work-card:hover { border-color: var(--beam); transform: translateY(-2px); }
+.work-card:focus-visible { outline: 2px solid var(--beam); outline-offset: 3px; }
+.work-shot { display: block; background: var(--void); border-bottom: 1px solid rgba(70, 55, 47, 0.1); }
+.work-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 9px 12px;
+  border-bottom: 1px solid rgba(70, 55, 47, 0.08);
+  color: var(--mist);
+}
+.work-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--beam-dim); }
+.work-bar .mono { margin-left: 8px; font-size: 10px; letter-spacing: 0.08em; text-transform: none; }
+.work-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.work-placeholder {
+  display: grid; place-items: center;
+  aspect-ratio: 16 / 10;
+  font-family: var(--display); font-weight: 600; font-size: 26px;
+  color: var(--beam);
+  background: linear-gradient(135deg, var(--void), var(--beam-dim));
+}
+.work-meta { display: grid; gap: 4px; padding: 18px 20px; }
+.work-name { font-family: var(--display); font-weight: 600; font-size: 20px; }
+.work-meta .mono { color: var(--mist); }
+
 /* ============ faq ============ */
 .faq {
   width: 100%; max-width: 760px;
