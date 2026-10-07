@@ -258,6 +258,9 @@ ctaForm.addEventListener('submit', async (e) => {
   }
 });
 
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 /* ---------- boot ---------- */
 if (reducedMotion) {
   initStaticMode();
