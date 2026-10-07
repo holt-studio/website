@@ -211,6 +211,40 @@ main { position: relative; z-index: 10; }
 .tier li { padding-left: 28px; position: relative; }
 .tier li::before { content: '—'; position: absolute; left: 0; color: var(--beam); }
 
+.tiers-note { color: var(--mist); font-size: 15px; margin-top: 8px; }
+.tiers-note a, .faq a { color: var(--paper); text-underline-offset: 3px; }
+
+/* ============ faq ============ */
+.faq {
+  width: 100%; max-width: 760px;
+  margin-top: 20px;
+  text-align: left;
+  display: grid; gap: 12px;
+}
+.faq details {
+  background: var(--panel);
+  border: 1px solid rgba(70, 55, 47, 0.12);
+  border-radius: 14px;
+  padding: 0 22px;
+}
+.faq details[open] { border-color: var(--beam-dim); }
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 28px 18px 0;
+  font-family: var(--display); font-weight: 600; font-size: 18px;
+  position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '+'; position: absolute; right: 0; top: 50%;
+  transform: translateY(-50%);
+  color: var(--beam); font-family: var(--mono); font-size: 20px;
+}
+.faq details[open] summary::after { content: '–'; }
+.faq summary:focus-visible { outline: 2px solid var(--beam); outline-offset: 4px; border-radius: 6px; }
+.faq details p { padding-bottom: 18px; }
+
 /* ============ buttons ============ */
 .btn {
   font-family: var(--mono);
