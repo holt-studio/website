@@ -244,16 +244,17 @@ main { position: relative; z-index: 10; }
 }
 .work-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--beam-dim); }
 .work-bar .mono { margin-left: 8px; font-size: 10px; letter-spacing: 0.08em; text-transform: none; }
-.work-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.work-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }
 .work-placeholder {
   display: grid; place-items: center;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   font-family: var(--display); font-weight: 600; font-size: 26px;
   color: var(--beam);
   background: linear-gradient(135deg, var(--void), var(--beam-dim));
 }
 .work-meta { display: grid; gap: 4px; padding: 18px 20px; }
 .work-name { font-family: var(--display); font-weight: 600; font-size: 20px; }
+.work-kind { font-size: 15px; }
 .work-meta .mono { color: var(--mist); }
 
 /* ============ about ============ */
