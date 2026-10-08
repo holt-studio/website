@@ -1,4 +1,4 @@
-/* Holt Studio — scroll-scrubbed film site */
+/* Holt Design — scroll-scrubbed film site */
 
 const FPS = 24;               // source video fps (timecode display)
 const SEQ_COUNT = 6;
@@ -103,7 +103,9 @@ function initStaticMode() {
     const img = document.createElement('img');
     img.className = 'poster';
     img.src = framePath(seq, FRAME_COUNTS[Number(seq)]);
-    img.alt = '';
+    img.alt = scene.dataset.alt || '';
+    img.width = 1600;
+    img.height = 900;
     img.loading = 'lazy';
     scene.appendChild(img);
   });
@@ -191,7 +193,8 @@ function initFilmMode() {
       const ss = String(Math.floor(t % 60)).padStart(2, '0');
       const ff = String(Math.floor((t % 1) * FPS)).padStart(2, '0');
       if (timecodeEl) timecodeEl.textContent = `00:${mm}:${ss}:${ff}`;
-      scrollHintEl.style.opacity = self.progress > 0.02 ? 0.55 : 1;
+      // Full at the top, dimmed while scrolling, gone at the footer so it doesn't cover it
+      scrollHintEl.style.opacity = self.progress > 0.98 ? 0 : self.progress > 0.02 ? 0.55 : 1;
     },
   });
 
@@ -207,10 +210,11 @@ function initFilmMode() {
 }
 
 /* ---------- form ---------- */
-// After deploying the Cloudflare Worker, paste its URL here:
-const RFQ_ENDPOINT = ''; // e.g. 'https://holt-studio-rfq.<you>.workers.dev'
+// Web3Forms: the access key is public by design (it only lets the page send to our inbox).
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
 
-document.getElementById('ctaForm').addEventListener('submit', async (e) => {
+const ctaForm = document.getElementById('ctaForm');
+ctaForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
   if (!form.checkValidity()) {
@@ -219,40 +223,52 @@ document.getElementById('ctaForm').addEventListener('submit', async (e) => {
   }
   const doneEl = document.getElementById('formDone');
   const errEl = document.getElementById('formErr');
+  const btn = document.getElementById('formBtn');
   errEl.hidden = true;
 
-  const fields = form.querySelectorAll('input, button');
-  fields.forEach((el) => (el.disabled = true));
+  const data = Object.fromEntries(new FormData(form));
 
-  const payload = {
-    name: form.name.value,
-    business: form.business.value,
-    phone: form.phone.value,
-    website: form.website.value, // honeypot
-  };
-
-  // Not wired to a backend yet — acknowledge without losing the submission's UX.
-  if (!RFQ_ENDPOINT) {
-    doneEl.hidden = false;
+  // Honeypot ticked → almost certainly a bot. Pretend it worked, send nothing.
+  if (data.botcheck) {
+    showDone();
     return;
   }
 
+  const fields = form.querySelectorAll('input, button');
+  fields.forEach((el) => (el.disabled = true));
+  const btnLabel = btn.textContent;
+  btn.textContent = 'Sending…';
+
   try {
-    const res = await fetch(RFQ_ENDPOINT, {
+    const res = await fetch(FORM_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
     });
-    if (!res.ok) throw new Error('Bad response ' + res.status);
-    doneEl.hidden = false;
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !body.success) throw new Error(body.message || 'Bad response ' + res.status);
+    showDone();
   } catch (err) {
     fields.forEach((el) => (el.disabled = false));
+    btn.textContent = btnLabel;
     errEl.hidden = false;
+  }
+
+  function showDone() {
+    form.querySelectorAll('label, button, .form-note').forEach((el) => (el.hidden = true));
+    doneEl.hidden = false;
+    doneEl.focus();
   }
 });
 
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 /* ---------- boot ---------- */
-if (reducedMotion) {
+// Reduced motion, or the animation libraries failed to load (CDN blocked/offline):
+// fall back to the static story so the page is never stuck behind the loader.
+const libsLoaded = window.gsap && window.ScrollTrigger && window.Lenis;
+if (reducedMotion || !libsLoaded) {
   initStaticMode();
 } else {
   // Load reel 1 with progress; start film when ready, load reel 2 behind it
